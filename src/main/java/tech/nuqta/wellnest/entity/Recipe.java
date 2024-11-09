@@ -20,7 +20,7 @@ import java.util.List;
 public class Recipe extends BaseEntity {
 
     @Column(nullable = false)
-    private String name; // Recipe name
+    private String title; // Recipe name
 
     private String description; // Brief description
 

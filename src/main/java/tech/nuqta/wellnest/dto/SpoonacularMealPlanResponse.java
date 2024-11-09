@@ -16,13 +16,3 @@ public class SpoonacularMealPlanResponse {
     private List<SpoonacularMeal> meals;
 }
 
-@Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-class SpoonacularMeal {
-    private int id;
-    private String title;
-    private String imageType;
-    private String image;
-    private int readyInMinutes;
-    private int servings;
-}

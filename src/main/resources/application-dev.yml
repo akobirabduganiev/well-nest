@@ -50,3 +50,8 @@ application:
 
 server:
   port: 8080
+
+spoonacular:
+  api:
+    key: 74b2b0661e4248f9a7aa2a7969b9cb0b
+    base-url: https://api.spoonacular.com

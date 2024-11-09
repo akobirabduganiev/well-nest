@@ -2,22 +2,37 @@ package tech.nuqta.wellnest.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import tech.nuqta.wellnest.common.CurrentUser;
+import tech.nuqta.wellnest.dto.MealPlanResponseDTO;
 import tech.nuqta.wellnest.entity.MealPlan;
-import tech.nuqta.wellnest.entity.Profile;
-import tech.nuqta.wellnest.entity.User;
+import tech.nuqta.wellnest.repository.MealPlanRepository;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class MealService {
     private final ChatClient chatClient;
-    @Value("classpath:/prompts/meal-plan.st")
-    private Resource generateMealPlanResource;
+    private final SpoonacularService spoonacularService;
+    private final MealPlanRepository mealPlanRepository;
 
-    public String generateMealPlan() {
+    /**
+     * Generates a new meal plan for the user and returns the response DTO.
+     */
+    public MealPlanResponseDTO generateMealPlan() {
+        return spoonacularService.generateMealPlanForUser(CurrentUser.getCurrentUser().getId());
+    }
+
+    /**
+     * Retrieves meal plans for a user on a specific date.
+     */
+    public List<MealPlan> getMealPlansForUser(LocalDate date) {
+        return mealPlanRepository.findByUserIdAndDate(CurrentUser.getCurrentUser().getId(), date);
+    }
+
+   /* public String generateMealPlan() {
         String prompt = "Using the following profile information, please generate a detailed 1-day meal plan:\n\n" +
                 "- First Name: {firstName}\n" +
                 "- Last Name: {lastName}\n" +
@@ -46,6 +61,6 @@ public class MealService {
                 )
                 .call()
                 .content();
-    }
+    }*/
 
 }
