@@ -23,7 +23,7 @@ public class MealController {
      * Endpoint to generate a new meal plan for the authenticated user.
      */
     @PostMapping("/generate")
-    public ResponseEntity<MealPlanDTO> generateMealPlan() {
+    public ResponseEntity<String> generateMealPlan() {
         return ResponseEntity.ok(mealService.generateMealPlan());
     }
 

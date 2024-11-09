@@ -16,11 +16,11 @@ public class MealService {
     @Value("classpath:/prompts/meal-plan.st")
     private Resource mealPlanPromptResource;
 
-    public MealPlanDTO generateMealPlan() {
+    public String generateMealPlan() {
         return chatClient.prompt()
                 .user(u -> u.text(mealPlanPromptResource))
                 .call()
-                .entity(MealPlanDTO.class);
+                .content();
     }
 
 }
