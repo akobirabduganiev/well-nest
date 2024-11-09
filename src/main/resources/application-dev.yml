@@ -4,7 +4,7 @@ spring:
       chat:
         model: llama3.2
 #    openai:
-#      api-key: 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
+#      api-key: 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
 #      chat:
 #        options:
 #          model: gpt-3.5-turbo

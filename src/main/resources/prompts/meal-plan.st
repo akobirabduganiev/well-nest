@@ -1,71 +1,32 @@
-I have the following user profile information:
+Using the following profile information, please generate a detailed 1-day meal plan:
 
-- First Name: {firstName}
-- Last Name: {lastName}
-- Date of Birth: {dateOfBirth}
-- Gender: {gender}
-- Height: {height} cm
-- Weight: {weight} kg
-- Dietary Preferences: {dietaryPreferences}
-- Goals: {goals}
+- **First Name:** {firstName}
+- **Last Name:** {lastName}
+- **Date of Birth:** {dateOfBirth}
+- **Gender:** {gender}
+- **Height:** {height} cm
+- **Weight:** {weight} kg
+- **Dietary Preferences:** {dietaryPreferences}
+- **Goals:** {goals}
 
-Based on this information, please generate a detailed 7-day meal plan. The meal plan should include:
+Please provide the response in JSON format as shown below, with the date populated appropriately:
 
-- **Date** for each day
-- **Total Calories** per day
-- **Meals** for each day, categorized as Breakfast, Lunch, Dinner, and Snacks
-
-For each meal, provide:
-- **Meal Type** (Breakfast, Lunch, Dinner, Snack)
-- **Description** (Recipe name or brief description)
-- **Calories**
-- **Protein** (in grams)
-- **Fat** (in grams)
-- **Carbohydrates** (in grams)
-- **Instructions** (Cooking instructions)
-- **Image URL** (optional)
-
-Please format the response in JSON with the following structure:
-
-```json
 {
-  "mealPlans": [
-    {
-      "date": "YYYY-MM-DD",
-      "totalCalories": 2000,
-      "meals": [
+    "date": "2024-11-09",
+    "totalCalories": 0,
+    "meals": [
         {
-          "mealType": "Breakfast",
-          "description": "Oatmeal with Fruits",
-          "calories": 350,
-          "protein": 10,
-          "fat": 5,
-          "carbs": 60,
-          "instructions": "Cook oats with milk and add sliced fruits on top.",
-          "imageUrl": "http://example.com/oatmeal.jpg"
+            "mealType": "Breakfast",
+            "description": "Dish description",
+            "calories": 0,
+            "protein": 0,
+            "fat": 0,
+            "carbohydrates": 0,
+            "instructions": "Cooking instructions",
+            "imageUrl": "http://example.com/image.jpg"
         },
-        {
-          "mealType": "Lunch",
-          "description": "Grilled Chicken Salad",
-          "calories": 500,
-          "protein": 40,
-          "fat": 20,
-          "carbs": 30,
-          "instructions": "Grill chicken breast and mix with fresh vegetables and dressing.",
-          "imageUrl": "http://example.com/chicken_salad.jpg"
-        },
-        // More meals...
-      ]
-    },
-    // More days...
-  ],
-  "shoppingList": [
-    "Oats",
-    "Milk",
-    "Fruits",
-    "Chicken Breast",
-    "Mixed Vegetables",
-    "Salad Dressing",
-    // More items...
-  ]
+        // Repeat for Lunch, Dinner, and Snacks
+    ]
 }
+
+If a field is unknown, respond with `null` or an empty string. If you cannot provide an answer, respond with 'I'm sorry, but I don't know the answer to that.'

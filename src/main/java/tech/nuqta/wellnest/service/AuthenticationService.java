@@ -103,10 +103,10 @@ public class AuthenticationService {
         var refreshToken = jwtService.generateRefreshToken(claims, user);
         return AuthenticationResponse.builder()
                 .id(user.getId())
-                .fullName(user.getProfile().getFullName())
+                .fullName(null)
                 .email(user.getEmail())
-                .firstName(user.getProfile().getFirstName())
-                .lastName(user.getProfile().getLastName())
+                .firstName(null)
+                .lastName(null)
                 .refreshToken(refreshToken)
                 .accessToken(jwtToken)
                 .build();
