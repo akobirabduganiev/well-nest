@@ -1,0 +1,52 @@
+spring:
+  ai:
+    ollama:
+      chat:
+        model: llama3.2
+#    openai:
+#      api-key: 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
+#      chat:
+#        options:
+#          model: gpt-3.5-turbo
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=600s
+    cache-names: categories,products
+  mail:
+    properties:
+      mail:
+        debug: false
+  threads:
+    virtual:
+      enabled: true
+  application:
+    name: wellnest
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
+      refresh-token:
+        expiration: 15552000000 # 6 months
+  mailing:
+    frontend:
+      activation-url: ""
+
+server:
+  port: 8080
