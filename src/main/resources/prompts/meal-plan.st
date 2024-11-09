@@ -1,32 +1,62 @@
-Using the following profile information, please generate a detailed 1-day meal plan:
+Generate a 3-day meal plan with breakfast, lunch, and dinner for each day. Each meal should include:
 
-- **First Name:** {firstName}
-- **Last Name:** {lastName}
-- **Date of Birth:** {dateOfBirth}
-- **Gender:** {gender}
-- **Height:** {height} cm
-- **Weight:** {weight} kg
-- **Dietary Preferences:** {dietaryPreferences}
-- **Goals:** {goals}
+- Meal type (e.g., "Breakfast", "Lunch", "Dinner")
+- Name (e.g., "Salad with egg")
+- Calories (e.g., "200kcal")
+- Weight in grams (e.g., "150g")
+- Nutrient breakdown: protein, carbohydrates, fats (e.g., "Protein: 50g", "Carbohydrates: 40g", "Fats: 10g")
 
-Please provide the response in JSON format as shown below, with the date populated appropriately:
+Format the response as a JSON object with the following structure:
 
 {
-    "date": "2024-11-09",
-    "totalCalories": 0,
-    "meals": [
+  "mealPlan": [
+    {
+      "day": "Day 01",
+      "meals": [
         {
-            "mealType": "Breakfast",
-            "description": "Dish description",
-            "calories": 0,
-            "protein": 0,
-            "fat": 0,
-            "carbohydrates": 0,
-            "instructions": "Cooking instructions",
-            "imageUrl": "http://example.com/image.jpg"
+          "type": "Breakfast",
+          "name": "Salad with egg",
+          "calories": "200kcal",
+          "weight": "150g",
+          "nutrients": {
+            "protein": "50g",
+            "carbohydrates": "40g",
+            "fats": "10g"
+          }
         },
-        // Repeat for Lunch, Dinner, and Snacks
-    ]
+        {
+          "type": "Lunch",
+          "name": "Grilled chicken breast with quinoa",
+          "calories": "500kcal",
+          "weight": "350g",
+          "nutrients": {
+            "protein": "80g",
+            "carbohydrates": "60g",
+            "fats": "30g"
+          }
+        },
+        {
+          "type": "Dinner",
+          "name": "Baked salmon with broccoli",
+          "calories": "600kcal",
+          "weight": "250g",
+          "nutrients": {
+            "protein": "60g",
+            "carbohydrates": "20g",
+            "fats": "50g"
+          }
+        }
+      ]
+    },
+    {
+      "day": "Day 02",
+      "meals": [ ... ]
+    },
+    {
+      "day": "Day 03",
+      "meals": [ ... ]
+    }
+  ]
 }
 
-If a field is unknown, respond with `null` or an empty string. If you cannot provide an answer, respond with 'I'm sorry, but I don't know the answer to that.'
+Only return the response in the JSON format specified, with no additional text or explanations.
