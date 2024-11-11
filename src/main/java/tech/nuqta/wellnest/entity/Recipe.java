@@ -3,6 +3,8 @@ package tech.nuqta.wellnest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+import tech.nuqta.wellnest.enums.DietaryPreference;
 
 import java.util.List;
 
@@ -13,6 +15,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "recipes", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"name"})
@@ -24,15 +27,14 @@ public class Recipe extends BaseEntity {
 
     private String description; // Brief description
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
-
     @Column(length = 10000)
     private String ingredients; // List of ingredients
 
     @Column(length = 10000)
-    private String instructions; // Step-by-step cooking instructions
+    private String instructions;// Step-by-step cooking instructions
+
+    @Enumerated(EnumType.STRING)
+    private DietaryPreference dietaryPreference; // e.g., Vegetarian, Vegan
 
     private Integer calories;
 

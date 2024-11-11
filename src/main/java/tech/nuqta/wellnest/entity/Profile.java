@@ -3,7 +3,9 @@ package tech.nuqta.wellnest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import tech.nuqta.wellnest.enums.DietaryPreference;
 import tech.nuqta.wellnest.enums.Gender;
+import tech.nuqta.wellnest.enums.Goal;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,16 +27,15 @@ public class Profile extends BaseEntity {
     private Integer height; // in centimeters
     private Double weight; // in kilograms
 
-    private String dietaryPreferences; // e.g., Vegetarian, Vegan
+    @Enumerated(EnumType.STRING)
+    private DietaryPreference dietaryPreference; // e.g., Vegetarian, Vegan
 
-    private String goals; // e.g., Weight Loss, Maintenance
+    @Enumerated(EnumType.STRING)
+    private Goal goals; // e.g., Weight Loss, Maintenance
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
-
-    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ActivityHistory> activityHistories;
 
     public String getFullName() {
         return firstName + " " + lastName;

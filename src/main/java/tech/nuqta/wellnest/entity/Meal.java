@@ -3,6 +3,7 @@ package tech.nuqta.wellnest.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * The Meal class represents an individual meal in a meal plan.
@@ -11,11 +12,12 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "meals")
 public class Meal extends BaseEntity {
 
-    private String mealType; // e.g., Breakfast, Lunch, Dinner, Snack
+    private String mealType; // e.g., Breakfast, Lunch, Dinner
 
     private String description; // Recipe name or brief description
 

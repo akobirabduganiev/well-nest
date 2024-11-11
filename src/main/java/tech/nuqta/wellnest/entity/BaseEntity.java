@@ -35,10 +35,6 @@ public class BaseEntity {
     @Column(insertable = false)
     private LocalDateTime updatedAt;
 
-    @CreatedBy
-    @Column(nullable = false, updatable = false)
-    private Long createdBy;
-
     @LastModifiedBy
     @Column(insertable = false)
     private Long modifiedBy;

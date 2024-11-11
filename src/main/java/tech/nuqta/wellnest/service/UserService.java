@@ -28,7 +28,7 @@ public class UserService {
         Profile newProfile = toProfileEntity(request);
         newProfile.setUser(currentUser);
         profileRepository.save(newProfile);
-
+        userRepository.save(currentUser);
         return new ResponseMessage(toProfileDto(newProfile), "Profile created successfully");
     }
 
@@ -40,7 +40,7 @@ public class UserService {
         profile.setHeight(request.getHeight());
         profile.setWeight(request.getWeight());
         profile.setDateOfBirth(request.getDateOfBirth());
-        profile.setDietaryPreferences(request.getDietaryPreferences());
+        profile.setDietaryPreference(request.getDietaryPreference());
         profile.setGoals(request.getGoals());
         return profile;
     }
@@ -55,7 +55,7 @@ public class UserService {
                 profile.getGender(),
                 profile.getHeight(),
                 profile.getWeight(),
-                profile.getDietaryPreferences(),
+                profile.getDietaryPreference(),
                 profile.getGoals()
         );
     }

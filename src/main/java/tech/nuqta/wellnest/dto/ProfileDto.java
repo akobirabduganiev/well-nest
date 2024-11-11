@@ -1,7 +1,9 @@
 package tech.nuqta.wellnest.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import tech.nuqta.wellnest.enums.DietaryPreference;
 import tech.nuqta.wellnest.enums.Gender;
+import tech.nuqta.wellnest.enums.Goal;
 
 import java.time.LocalDate;
 
@@ -15,7 +17,7 @@ public record ProfileDto(
         Gender gender,
         Integer height,
         Double weight,
-        String dietaryPreferences,
-        String goals
+        DietaryPreference dietaryPreferences,
+        Goal goal
 ) {
 }
