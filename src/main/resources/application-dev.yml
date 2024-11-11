@@ -23,7 +23,7 @@ spring:
   application:
     name: wellnest
   datasource:
-    url: jdbc:postgresql://localhost:5432/wellnest_db
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: root
     driver-class-name: org.postgresql.Driver
